@@ -2,7 +2,7 @@
     package="com.example.ecom_demo">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
-        android:label="ecom_demo"
+        android:label="Ecom Demo"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

@@ -2,6 +2,7 @@ import 'package:ecom_demo/Utilities/const/colors.dart';
 import 'package:ecom_demo/Utilities/const/my_icons.dart';
 import 'package:ecom_demo/pages/auth/loginPage.dart';
 import 'package:ecom_demo/pages/tab/cart.dart';
+import 'package:ecom_demo/pages/tab/order.dart';
 import 'package:ecom_demo/pages/tab/wishlist.dart';
 import 'package:ecom_demo/providers/isLogProvider.dart';
 import 'package:ecom_demo/providers/statusProvider.dart';
@@ -151,6 +152,20 @@ class _UserInfoTabState extends State<UserInfoTab> {
                         title: Text('Cart'),
                         trailing: Icon(Icons.chevron_right_rounded),
                         leading: Icon(MyAppIcons.cart),
+                      ),
+                    ),
+                  ),
+                  Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      splashColor: Theme.of(context).splashColor,
+                      child: ListTile(
+                        onTap: () =>Navigator.of(context).pushNamed(
+                            MyOrder.id
+                        ),
+                        title: Text('My Orders'),
+                        trailing: Icon(Icons.chevron_right_rounded),
+                        leading: Icon(MyAppIcons.orders),
                       ),
                     ),
                   ),

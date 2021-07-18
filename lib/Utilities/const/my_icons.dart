@@ -18,4 +18,5 @@ class MyAppIcons{
   static IconData moon = Icons.nightlight_round;
   static IconData upload = Icons.upload;
   static IconData wishlist = Icons.favorite;
+  static IconData orders = Icons.shop;
 }

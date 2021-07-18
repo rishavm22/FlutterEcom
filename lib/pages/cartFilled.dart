@@ -28,7 +28,7 @@ class _CartFilledState extends State<CartFilled> {
       onTap: () => Navigator.pushNamed(context, ProductDetails.id,
           arguments: widget.productId),
       child: Container(
-        height: 135,
+        height: 150,
         margin: const EdgeInsets.all(10),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.only(
@@ -44,6 +44,7 @@ class _CartFilledState extends State<CartFilled> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: NetworkImage(cartAttr.imageUrl),
+                  fit: BoxFit.cover
                   //  fit: BoxFit.fill,
                 ),
               ),
