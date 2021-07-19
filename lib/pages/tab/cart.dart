@@ -6,6 +6,7 @@ import 'package:ecom_demo/pages/checkoutPage.dart';
 import 'package:ecom_demo/pages/tab/order.dart';
 import 'package:ecom_demo/providers/cart_provider.dart';
 import 'package:ecom_demo/providers/orderProvider.dart';
+import 'package:ecom_demo/services/databaseService.dart';
 import 'package:ecom_demo/services/global_method.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,6 +17,7 @@ class CartTab extends StatelessWidget {
   static String id = 'cartTab';
   @override
   Widget build(BuildContext context) {
+
     GlobalMethods globalMethods = GlobalMethods();
     final cartProvider = Provider.of<CartProvider>(context);
 
@@ -59,6 +61,7 @@ class CartTab extends StatelessWidget {
 
   Widget checkoutSection(BuildContext ctx, GlobalMethods globalMethods,
       CartProvider cartProvider) {
+
     return Container(
         decoration: BoxDecoration(
           border: Border(
@@ -100,12 +103,16 @@ class CartTab extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: TextButton(
                           onPressed: () {
+                            DatabaseServices databaseService = DatabaseServices();
+
                             ctx.read<OrderProvider>().addOrder(new Orders(
                                 totalQuantity: cartProvider.quantity,
                                 totalPrice: cartProvider.totalAmount,
                                 id: DateTime.now().toString(),
+                                customerId: databaseService.getUserId(),
                                 status: 'Order Placed'));
                             cartProvider.clearCart();
+
                             Navigator.pushNamed(ctx, MyOrder.id);
                           },
                           child: Text(

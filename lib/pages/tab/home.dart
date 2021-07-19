@@ -6,6 +6,7 @@ import 'package:ecom_demo/Utilities/const/colors.dart';
 import 'package:ecom_demo/widget/backlayer.dart';
 import 'package:ecom_demo/widget/brands_navigation_rail.dart';
 import 'package:ecom_demo/widget/category.dart';
+import 'package:ecom_demo/widget/feeds_product.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swipper/flutter_card_swiper.dart';
 
@@ -44,9 +45,9 @@ class _HomeTabState extends State<HomeTab> {
           flexibleSpace: Container(
             decoration: BoxDecoration(
                 gradient: LinearGradient(colors: [
-                  ColorsConsts.starterColor,
-                  ColorsConsts.endColor
-                ])),
+              ColorsConsts.starterColor,
+              ColorsConsts.endColor
+            ])),
           ),
           actions: <Widget>[
             IconButton(
@@ -79,12 +80,11 @@ class _HomeTabState extends State<HomeTab> {
                     return Builder(
                       builder: (BuildContext context) {
                         return Container(
-                            width: MediaQuery.of(context).size.width,
-                            margin: EdgeInsets.symmetric(horizontal: 5.0),
-                            decoration: BoxDecoration(
-                                color: Colors.amber
-                            ),
-                            child: Image.asset(item, fit: BoxFit.cover, width: 1000),
+                          width: MediaQuery.of(context).size.width,
+                          margin: EdgeInsets.symmetric(horizontal: 5.0),
+                          decoration: BoxDecoration(color: Colors.amber),
+                          child:
+                              Image.asset(item, fit: BoxFit.cover, width: 1000),
                         );
                       },
                     );
@@ -118,7 +118,7 @@ class _HomeTabState extends State<HomeTab> {
                     Text(
                       'Popular Brands',
                       style:
-                      TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
+                          TextStyle(fontWeight: FontWeight.w800, fontSize: 20),
                     ),
                     Spacer(),
                     TextButton(
@@ -171,11 +171,41 @@ class _HomeTabState extends State<HomeTab> {
                   },
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Center(
+                  child: Container(
+                    child: Text(
+                      'Products',
+                      style: TextStyle(
+                        color: Colors.blue.shade900,
+                        fontSize: 26,
+                        fontWeight: FontWeight.bold
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.75,
+                width: MediaQuery.of(context).size.width * 0.95,
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  childAspectRatio: 240 / 400,
+                  crossAxisSpacing: 8,
+                  mainAxisSpacing: 8,
+                  children: List.generate(100, (index) {
+                    return FeedProducts(
+                      index: index,
+                    );
+                  }),
+                ),
+              )
             ],
           ),
         ),
       ),
     );
   }
-
 }

@@ -1,3 +1,4 @@
+import 'package:ecom_demo/pages/homePage.dart';
 import 'package:ecom_demo/providers/orderProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,7 +28,8 @@ class _OrderFullState extends State<OrderFull> {
   orderItem(int index, OrderProvider value) {
     return Center(
       child: Container(
-        height: MediaQuery.of(context).size.height - 100,
+        color: Colors.blueAccent.shade100,
+        height: MediaQuery.of(context).size.height * 0.3,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
@@ -110,6 +112,12 @@ class _OrderFullState extends State<OrderFull> {
                   ),
                 ),
               ],
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, HomePage.id,arguments: {'pageNo':2});
+              },
+              child: Text('Track Order'),
             ),
           ],
         ),

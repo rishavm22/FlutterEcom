@@ -6,14 +6,19 @@ class FeedsTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 2,
-      childAspectRatio: 240/400,
-      crossAxisSpacing: 8,
-      mainAxisSpacing: 8,
-      children: List.generate(100, (index) {
-        return FeedProducts(index: index,);
-      }),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('ShopNow'),
+      ),
+      body: GridView.count(
+        crossAxisCount: 2,
+        childAspectRatio: 240/400,
+        crossAxisSpacing: 8,
+        mainAxisSpacing: 8,
+        children: List.generate(100, (index) {
+          return FeedProducts(index: index,);
+        }),
+      ),
     );
   }
 }

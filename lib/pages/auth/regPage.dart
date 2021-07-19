@@ -17,6 +17,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('ShopNow'),
+      ),
       backgroundColor: Color(0xFFA1B5FF),
       body: SingleChildScrollView(
         physics: ClampingScrollPhysics(),

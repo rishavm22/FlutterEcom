@@ -1,8 +1,7 @@
 import 'package:ecom_demo/Utilities/const/colors.dart';
 import 'package:ecom_demo/Utilities/const/my_icons.dart';
 import 'package:ecom_demo/pages/auth/loginPage.dart';
-import 'package:ecom_demo/pages/tab/cart.dart';
-import 'package:ecom_demo/pages/tab/feed.dart';
+import 'package:ecom_demo/pages/homePage.dart';
 import 'package:ecom_demo/pages/tab/wishlist.dart';
 import 'package:ecom_demo/providers/isLogProvider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -117,16 +116,13 @@ class BackLayerMenu extends StatelessWidget {
                 ),
                 const SizedBox(height: 10.0),
                 content(context, () {
-                  navigateTo(context, CartTab.id);
+                  Navigator.pushNamed(context, HomePage.id,arguments: {'pageNo':1});
                 }, 'Cart', 0),
                 const SizedBox(height: 10.0),
                 content(context, () {
                   navigateTo(context, WishlistTab.id);
                 }, 'Wishlist', 1),
                 const SizedBox(height: 10.0),
-                content(context, () {
-                  navigateTo(context, FeedsTab.id);
-                }, 'Upload a new product', 2),
                 content(context, () {
                   try {
                     FirebaseAuth.instance.signOut();

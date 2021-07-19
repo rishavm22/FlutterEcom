@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'checkoutPage.dart';
+import 'homePage.dart';
 // import 'package:provider/provider.dart';
 
 class ProductDetails extends StatefulWidget {
@@ -247,7 +248,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         color: ColorsConsts.cartColor,
                       ),
                       onPressed: () {
-                        Navigator.of(context).pushNamed(CartTab.id);
+                        Navigator.pushNamed(context, HomePage.id,arguments: {'pageNo':1});
                       },
                     ),
                   ]),
@@ -266,7 +267,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                         onPressed: () {
                           if (cartProvider.getCartItems
                               .containsKey(productId)) {
-                            Navigator.pushNamed(context, CartTab.id);
+                            Navigator.pushNamed(context, HomePage.id,arguments: {'pageNo':1});
                           } else {
                             cartProvider.addProductToCart(
                                 productId,
@@ -361,34 +362,6 @@ class _ProductDetailsState extends State<ProductDetails> {
           ],
         );
       }),
-    );
-  }
-
-  Widget _details(bool themeState, String title, String info) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 15, left: 16, right: 16),
-      child: Row(
-        //  mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: TextStyle(
-                color: Theme.of(context).textSelectionColor,
-                fontWeight: FontWeight.w600,
-                fontSize: 21.0),
-          ),
-          Text(
-            info,
-            style: TextStyle(
-              fontWeight: FontWeight.w400,
-              fontSize: 20.0,
-              color: themeState
-                  ? Theme.of(context).disabledColor
-                  : ColorsConsts.subTitle,
-            ),
-          ),
-        ],
-      ),
     );
   }
 }

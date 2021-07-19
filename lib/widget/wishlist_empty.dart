@@ -1,4 +1,5 @@
 import 'package:ecom_demo/Utilities/const/colors.dart';
+import 'package:ecom_demo/pages/homePage.dart';
 import 'package:flutter/material.dart';
 
 class WishlistEmpty extends StatelessWidget {
@@ -44,7 +45,9 @@ class WishlistEmpty extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.9,
           height: MediaQuery.of(context).size.height * 0.06,
           child: RaisedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, HomePage.id,arguments: {'pageNo':1});
+            },
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16),
               side: BorderSide(color: Colors.red),

@@ -2,15 +2,14 @@ import 'package:ecom_demo/Utilities/const/my_icons.dart';
 import 'package:ecom_demo/pages/tab/cart.dart';
 import 'package:ecom_demo/pages/tab/feed.dart';
 import 'package:ecom_demo/pages/tab/home.dart';
-import 'package:ecom_demo/pages/tab/search.dart';
 import 'package:ecom_demo/pages/tab/user_info.dart';
 import 'package:ecom_demo/providers/tabProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class BottomBarPage extends StatefulWidget {
-  const BottomBarPage({Key? key}) : super(key: key);
-
+  final int pageNo;
+  BottomBarPage({required this.pageNo});
   @override
   _BottomBarPageState createState() => _BottomBarPageState();
 }
@@ -21,10 +20,9 @@ class _BottomBarPageState extends State<BottomBarPage> {
   @override
   void initState() {
     super.initState();
+    context.read<TabProvider>().setSelectedPageIndex(widget.pageNo);
     _tabs = [
       {'tab': HomeTab()},
-      {'tab': FeedsTab()},
-      {'tab': SearchTab()},
       {'tab': CartTab()},
       {'tab': UserInfoTab()},
     ];
@@ -60,14 +58,6 @@ class _BottomBarPageState extends State<BottomBarPage> {
                 BottomNavigationBarItem(
                   icon: Icon(MyAppIcons.home),
                   label: 'Home'
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(MyAppIcons.feed),
-                  label: 'Feeds'
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(MyAppIcons.search),
-                  label: 'Search'
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(MyAppIcons.cart),

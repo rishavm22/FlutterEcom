@@ -25,8 +25,16 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    if(ModalRoute.of(context)!.settings.arguments !=null){
+      final arg = ModalRoute.of(context)!.settings.arguments as Map;
+
+      return Scaffold(
+        body: BottomBarPage(pageNo: arg['pageNo']!=null?arg['pageNo']:0,),
+      );
+    }
+
     return Scaffold(
-      body: BottomBarPage(),
+      body: BottomBarPage(pageNo: 0,),
     );
   }
 }

@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:list_tile_switch/list_tile_switch.dart';
 import 'package:provider/provider.dart';
 
+import '../homePage.dart';
+
 class UserInfoTab extends StatefulWidget {
   const UserInfoTab({Key? key}) : super(key: key);
 
@@ -146,9 +148,7 @@ class _UserInfoTabState extends State<UserInfoTab> {
                     child: InkWell(
                       splashColor: Theme.of(context).splashColor,
                       child: ListTile(
-                        onTap: () =>Navigator.of(context).pushNamed(
-                            CartTab.id
-                        ),
+                        onTap: () =>Navigator.pushNamed(context, HomePage.id,arguments: {'pageNo':1}),
                         title: Text('Cart'),
                         trailing: Icon(Icons.chevron_right_rounded),
                         leading: Icon(MyAppIcons.cart),

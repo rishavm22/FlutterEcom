@@ -26,7 +26,7 @@ import 'package:flutter_form_builder/localization/form_builder_localizations.dar
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(
@@ -53,46 +53,46 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<IsLoggedProvider>(
         builder: (BuildContext context, data, Widget? child) {
-          return MaterialApp(
-              title: 'Flutter Demo',
-              theme: ThemeData(
-                primarySwatch: Colors.blue,
-              ),
-              localizationsDelegates: [
-                FormBuilderLocalizations.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-              ],
-              supportedLocales: [
-                Locale('en', ''),
-                Locale('es', ''),
-                Locale('fr', ''),
-                Locale('ja', ''),
-                Locale('pt', ''),
-                Locale('sk', ''),
-                Locale('pl', ''),
-              ],
-              initialRoute: StarterPage.id,
-              routes: {
-                StarterPage.id: (context) => StarterPage(),
-                HomePage.id: (context) => HomePage(),
-                LoginPage.id: (context) => LoginPage(),
-                RegistrationPage.id: (context) => RegistrationPage(),
-                ForgetPage.id: (context) => ForgetPage(),
-                BrandNavigationRailScreen.id: (context) => BrandNavigationRailScreen(),
-                FeedsTab.id: (context) => FeedsTab(),
-                WishlistTab.id: (context) => WishlistTab(),
-                CartTab.id: (context) => CartTab(),
-                ProductDetails.id: (context) => ProductDetails(),
-                CategoriesFeedsPage.id: (context) => CategoriesFeedsPage(),
-                CheckoutPage.id: (context) => CheckoutPage(),
-                MyOrder.id: (context) => MyOrder(),
-              });
-        });
+      return MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        localizationsDelegates: [
+          FormBuilderLocalizations.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+        ],
+        supportedLocales: [
+          Locale('en', ''),
+          Locale('es', ''),
+          Locale('fr', ''),
+          Locale('ja', ''),
+          Locale('pt', ''),
+          Locale('sk', ''),
+          Locale('pl', ''),
+        ],
+        initialRoute: StarterPage.id,
+        routes: {
+          StarterPage.id: (context) => StarterPage(),
+          HomePage.id: (context) => HomePage(),
+          LoginPage.id: (context) => LoginPage(),
+          RegistrationPage.id: (context) => RegistrationPage(),
+          ForgetPage.id: (context) => ForgetPage(),
+          BrandNavigationRailScreen.id: (context) =>
+              BrandNavigationRailScreen(),
+          FeedsTab.id: (context) => FeedsTab(),
+          WishlistTab.id: (context) => WishlistTab(),
+          CartTab.id: (context) => CartTab(),
+          ProductDetails.id: (context) => ProductDetails(),
+          CategoriesFeedsPage.id: (context) => CategoriesFeedsPage(),
+          CheckoutPage.id: (context) => CheckoutPage(),
+          MyOrder.id: (context) => MyOrder(),
+        },
+      );
+    });
   }
 }
-
-
 
 class StarterPage extends StatefulWidget {
   static final String id = "starter";
@@ -114,4 +114,3 @@ class _StarterPageState extends State<StarterPage> {
     );
   }
 }
-

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:ecom_demo/services/datbaseService.dart';
+import 'package:ecom_demo/services/databaseService.dart';
 import 'package:flutter/material.dart';
 
 class SavedTab extends StatelessWidget {
@@ -13,7 +13,7 @@ class SavedTab extends StatelessWidget {
       child: Stack(
         children: [
           FutureBuilder<QuerySnapshot>(
-            future: _databaseServices.usersRef
+            future: refUser
                 .doc(_databaseServices.getUserId())
                 .collection("Saved")
                 .get(),
@@ -46,7 +46,7 @@ class SavedTab extends StatelessWidget {
                         //     ));
                       },
                       child: FutureBuilder(
-                        future: _databaseServices.productsRef
+                        future: productsRef
                             .doc(document.id)
                             .get(),
                         builder: (context, productSnap) {
